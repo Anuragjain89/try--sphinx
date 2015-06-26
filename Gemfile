@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'thinking-sphinx'
 gem 'mysql2'
+gem 'populator'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
