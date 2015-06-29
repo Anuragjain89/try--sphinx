@@ -2,6 +2,25 @@
 
 <h1>Listing Articles</h1>
 
+<%= form_for articles_path, :method => 'get' do %>
+<p>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", :name => nil %>
+</p>
+<% end %>
+
+<% @results.each do |result| %>
+<div class="row" style="background:white; margin-top:5px; border-radius:10px">
+  <div class="col-md-2">
+    <strong><%= result.title %></strong>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-6">
+    <%=  result.content %>
+  </div>
+</div>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -13,13 +32,13 @@
 
   <tbody>
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.content %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.content %></td>
+      <td><%= link_to 'Show', article %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>

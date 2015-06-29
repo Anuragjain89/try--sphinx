@@ -4,7 +4,9 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.all.limit(20)
+    @results2 = Article.where(Article.arel_table[:title].matches("%#{params[:search]}%").or(Article.arel_table[:content].matches("%#{params[:search]}%"))).to_a
+    @results = Article.search(params[:search])
   end
 
   # GET /articles/1

@@ -88,3 +88,4 @@ db/sphinx/development/*.spi
 db/sphinx/development/*.spl
 db/sphinx/development/*.tmp
 db/sphinx/development/*.spe
+config/development.sphinx.conf

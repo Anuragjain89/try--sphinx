@@ -3,7 +3,7 @@ namespace :db do
   task :populate => :environment do
     require 'populator'
     Article.delete_all
-    Article.populate 100 do |article|
+    Article.populate 100000 do |article|
       article.title   = Populator.words(1..5).titleize
       article.content = Populator.sentences(2..10)
     end
